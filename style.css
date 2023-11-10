@@ -1,0 +1,27 @@
+body{
+  display: flex;
+  align-items: center;  
+  justify-content: center;
+  height: 100vh;
+  flex-wrap: wrap;
+}
+button{
+  margin: 10px;
+  background: #222;
+  padding: 10px 20px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+}
+.error{
+  background: red;
+}
+.warning{
+  background: #ED991D;
+}
+.success{
+  background: #3EB058;
+}
+.info{
+  background: dodgerblue;
+}
