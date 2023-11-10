@@ -1,7 +1,9 @@
-window.addEventListener('load', () => {
-  var div = document.createElement('div')
-  div.setAttribute('id', 'toasts')
-  document.body.appendChild(div)
+document.addEventListener("DOMContentLoaded", () => {
+  if(!document.getElementById('toasts')){
+    var div = document.createElement('div')
+    div.setAttribute('id', 'toasts')
+    document.body.appendChild(div)
+  }
 })
 function Toast(toast){
   var toasts = document.getElementById('toasts')
@@ -14,53 +16,53 @@ function Toast(toast){
       case 'warning':
         div.classList.add('toast-warning')
         div.innerHTML = `
-        <div class="toast-message" style="align-items: ${toast.body ? 'start' : 'center'}">
+        <${toast.link ? 'a' : 'div'} ${toast.link ? `href="${toast.link}"` : ''} ${toast.newWindow ? 'target="_blank"' : ''} class="toast-message" style="align-items: ${toast.body ? 'start' : 'center'}">
           <i class="fa fa-warning"></i>
           <span>
             <h5 style="margin-bottom: ${toast.body ? '5px' : '0'}">${toast.title}</h5>
             ${toast.body ? `<p>${toast.body}</p>` : ''}
           </span>
           <div class="toast-loader" style="animation-duration: ${toast.duration}s"></div>
-        </div>
+        </${toast.link ? 'a' : 'div'}>
         `
         break;
       case 'success':
         div.classList.add('toast-success')
         div.innerHTML = `
-        <div class="toast-message" style="align-items: ${toast.body ? 'start' : 'center'}">
+        <${toast.link ? 'a' : 'div'} ${toast.link ? `href="${toast.link}"` : ''} ${toast.newWindow ? 'target="_blank"' : ''} class="toast-message" style="align-items: ${toast.body ? 'start' : 'center'}">
           <i class="fa fa-check-circle"></i>
           <span>
             <h5 style="margin-bottom: ${toast.body ? '5px' : '0'}">${toast.title}</h5>
             ${toast.body ? `<p>${toast.body}</p>` : ''}
           </span>
           <div class="toast-loader" style="animation-duration: ${toast.duration}s"></div>
-        </div>
+        </${toast.link ? 'a' : 'div'}>
         `
         break;
       case 'error':
         div.classList.add('toast-error')
         div.innerHTML = `
-        <div class="toast-message" style="align-items: ${toast.body ? 'start' : 'center'}">
+        <${toast.link ? 'a' : 'div'} ${toast.link ? `href="${toast.link}"` : ''} ${toast.newWindow ? 'target="_blank"' : ''} class="toast-message" style="align-items: ${toast.body ? 'start' : 'center'}">
           <i class="fa fa-shield-alt"></i>
           <span>
             <h5 style="margin-bottom: ${toast.body ? '5px' : '0'}">${toast.title}</h5>
             ${toast.body ? `<p>${toast.body}</p>` : ''}
           </span>
           <div class="toast-loader" style="animation-duration: ${toast.duration}s"></div>
-        </div>
+        </${toast.link ? 'a' : 'div'}>
         `
         break;
       case 'info':
         div.classList.add('toast-info')
         div.innerHTML = `
-        <div class="toast-message" style="align-items: ${toast.body ? 'start' : 'center'}">
+        <${toast.link ? 'a' : 'div'} ${toast.link ? `href="${toast.link}"` : ''} ${toast.newWindow ? 'target="_blank"' : ''} class="toast-message" style="align-items: ${toast.body ? 'start' : 'center'}">
           <i class="fa fa-info-circle"></i>
           <span>
             <h5 style="margin-bottom: ${toast.body ? '5px' : '0'}">${toast.title}</h5>
             ${toast.body ? `<p>${toast.body}</p>` : ''}
           </span>
           <div class="toast-loader" style="animation-duration: ${toast.duration}s"></div>
-        </div>
+        </${toast.link ? 'a' : 'div'}>
         `
         break;
       default:
@@ -70,9 +72,10 @@ function Toast(toast){
         }
         if(toast.textColor){
           div.style.color = toast.textColor
+          i.style.color = toast.textColor
         }
         div.innerHTML = `
-        <div class="toast-message" style="align-items: ${toast.body ? 'start' : 'center'}; color: ${toast.textColor ? toast.textColor : '#333'} !important;">
+        <${toast.link ? 'a' : 'div'} ${toast.link ? `href="${toast.link}"` : ''} ${toast.newWindow ? 'target="_blank"' : ''} class="toast-message" style="align-items: ${toast.body ? 'start' : 'center'}; color: ${toast.textColor ? toast.textColor : '#333'} !important;">
           ${toast.icon ? `<img src="${toast.icon}" width="20" alt="icon"/>`: ''}
           ${toast.iconClass ? `<i class="fa fa-${toast.iconClass}"></i>`: ''}
           <span>
@@ -80,7 +83,7 @@ function Toast(toast){
             ${toast.body ? `<p>${toast.body}</p>` : ''}
           </span>
           <div class="toast-loader" style="animation-duration: ${toast.duration}s; background: ${toast.textColor ? toast.textColor : '#ccc'}"></div>
-        </div>
+        </${toast.link ? 'a' : 'div'}>
         `
         break;
     }
@@ -91,9 +94,10 @@ function Toast(toast){
     }
     if(toast.textColor){
       div.style.color = toast.textColor
+      i.style.color = toast.textColor
     }
     div.innerHTML = `
-    <div class="toast-message" style="align-items: ${toast.body ? 'start' : 'center'}; color: ${toast.textColor ? toast.textColor : '#333'} !important;">
+    <${toast.link ? 'a' : 'div'} ${toast.link ? `href="${toast.link}"` : ''} ${toast.newWindow ? 'target="_blank"' : ''} class="toast-message" style="align-items: ${toast.body ? 'start' : 'center'}; color: ${toast.textColor ? toast.textColor : '#333'} !important;">
       ${toast.icon ? `<img src="${toast.icon}" width="20" alt="icon"/>`: ''}
       ${toast.iconClass ? `<i class="fa fa-${toast.iconClass}"></i>`: ''}
       <span>
@@ -101,7 +105,7 @@ function Toast(toast){
         ${toast.body ? `<p>${toast.body}</p>` : ''}
       </span>
       <div class="toast-loader" style="animation-duration: ${toast.duration}s; background: ${toast.textColor ? toast.textColor : '#ccc'}"></div>
-    </div>
+    </${toast.link ? 'a' : 'div'}>
     `
   }
   div.appendChild(i)

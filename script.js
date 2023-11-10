@@ -1,21 +1,3 @@
-/* 
-######## Qollanma
-
-  Toast({
-    type: '[success, info, warning, error]', // Toast turi, 4 xil | ixtiyoriy
-    icon: 'image.jpg', // Toast uchun rasm | ixtiyoriy
-    iconClass: 'telegram fab', //  Toast uchun icon | ixtiyoriy
-    bgColor: 'dodgerblue', // Toast orqa foni rangi | ixtiyoriy | default: white 
-    textColor: 'white', // Toast text rangi | ixtiyoriy
-    title: `Telegram Massenger`, // Toast sarlavhasi | majburiy
-    body: 'Social Media', // Toast izohi | ixtiyoriy
-    duration: 5, // Toast vaqti | majburiy
-  })
-
-
-*/
-
-
 // Error Toast
 document.querySelector('.error').addEventListener('click', () => {
   Toast({
@@ -31,7 +13,7 @@ document.querySelector('.warning').addEventListener('click', () => {
   Toast({
     type: 'warning',
     title: `Warning`,
-    body: 'You musy enter a title!!', 
+    body: 'You must enter a title!!', 
     duration: 5,
   })
 })
@@ -87,6 +69,8 @@ document.querySelector('.image').addEventListener('click', () => {
 // Custom Toast
 document.querySelector('.c').addEventListener('click', () => {
   Toast({
+    link: 'https://t.me/shaedul_off',
+    newWindow: true,
     iconClass: 'telegram fab',
     title: `Telegram channel`,
     body: '@Shaedul_Off',

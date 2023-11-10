@@ -84,6 +84,7 @@ body{
   }
 }
 .toast-close{
+  color: #333;
   font-size: 18px;
   opacity: .8;
   cursor: pointer;
@@ -92,6 +93,7 @@ body{
 .toast-message{
   display: flex;
   color: #333;
+  text-decoration: none;
 }
 .toast-message h5{
   padding: 0;
@@ -109,6 +111,7 @@ body{
 }
 .toast-message i{
   margin-right: 15px;
+  text-decoration: none;
   margin-top: 2px;
   font-size: 25px;
 }
