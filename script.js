@@ -92,6 +92,8 @@ document.querySelector('.simple').addEventListener('click', () => {
 // Full Toast
 document.querySelector('.full').addEventListener('click', () => {
   Toast({
+    link: 'https://shaedul-off.vercel.app',
+    newWindow: true,
     type: 'null',
     icon: 'https://picsum.photos/20',
     iconClass: 'circle',
